@@ -2,8 +2,22 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Arial', serif;
     box-sizing: border-box;
+}
+
+:root {
+    --orange: #FE992A;
+    --white: #ffffff;
+    --red:#E56C69;
+    --grey:#737C85;
+    --lightergrey:#EAEAEA;
+    --blur-orange:#FFBA6E;
+  }
+  
+
+.lato{
+    font-family: "Lato",serif;
 }
 body{
     overflow-x: hidden;
@@ -12,34 +26,44 @@ header{
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1000;
     align-items: center;
     display: flex;
-    padding: 20px;
+    padding:25px 21px;
 }
-
+.container{
+    padding: 100px 280px 100px 280px;
+}
+.logo-area{
+    position: absolute;
+}
 .logo{
-    width: 75px;
-    height: 75px;
+    width: 73px;
+    height: 73px;
 }
 .menu-icons{
     display: none;
 }
 .menu{
-  padding-left: 200px;
-  padding-top: 20px;
+  margin-left: 250px;
+  width: 718px;
+  display: flex;
+  justify-content: space-between;
 }
 .menu li{
     position: relative;
     padding: 5px 10px;
 }
 .menu li,.menu a{
-    font-size: 14px;
+    font-size: 15px;
     display: inline-block;
+    font-weight: bold;
     transition: all .5s;
 }
 
 .menu a {
-    padding: 10px 17px;
+    padding: 10px 20px;
+    font-family: "Lato",serif;
     text-decoration: none;
     color: #fff;
 }
@@ -96,106 +120,178 @@ header{
 }
 
 .hero{
-    background-image: url("/image/photo-1579167840597-2cda5cac883d.jpeg");
+    background-image: url("image/Slide.jpg");
     width: 100vw;
     background-size: cover;
-    height: 100vh;
+    height: 914px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 300px;
     color: #fff;
 }
 .hero-text{
-    width: 50%;
+    width: 403px;
+   
 }
+
 .hero-text h1{
-    width: 50%;
+    font-size: 52px;
     margin-bottom: 20px;
+    font-weight: lighter;
+}
+.hero-text .main-text,.hero-text .sub-text{
+    font-family: "Lato",serif;
+    line-height: 25px;
+    font-size: 14px;
 }
 .slider{
     display: flex;
-    padding: 100px 300px;
+    height: 520px;
+    position: relative;
+    transform: translateY(-50px);
+    background-color: white;
+
+}
+.slider::before{
+    content:"";
+    left: 0;
+
+    background-color: white ;
+    width: 100%;
+    transform:skew( 0deg,1deg);
+    top:-40px;
+    border-radius: 25% 100% 0% 0% / 0% 6% 0% 0% ;
+
+    z-index: -1;
+    height: 100%;
+    position: absolute;
+}
+.slider::after{
+    content:"";
+    left: 0;
+
+    background-color: rgba(255, 255, 255, 0.5) ;
+    width: 100%;
+    transform:skew( 0deg,1deg);
+    top:-60px;
+    z-index: -1;
     height: 100%;
 
+    position: absolute;
 }
 
-.slider-left{
-
-    border-right: 1px solid #ccc;
-    padding-right: 50px;
-    color: rgb(223, 156, 79);
+.slide-text{
+    position: relative;
+    font-family: "Lato",serif;
     font-style: italic;
+    line-height: 28px;
+}
+.slide-text::before{
+    content: '"';
+    content: url(/image/openq-q.svg);
+
+    margin:-40px 0;
+    position: absolute;
+}
+.slide-text::after{
+    content: url(/image/close-q.svg);
+    margin:10px 0;
+    position: absolute;
+}
+.slider-left{
+    border-right: 1px solid var(--lightergrey);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-style: italic;
+    color: var(--orange);
     font-size: 20px;
+    width: 290px;
+    padding-right: 40px;
 }
 
-.close-quotation{
-
-}
 
 .slide-btn{
     display: flex;
-    padding: 25px 0;
-    float: right;
+    
+    width: 100%;
+    padding-bottom: 20px;
+    justify-content: flex-end;
 }
 .btn-arrow-left,.btn-arrow-right{
     width: 30px;
-    margin: 0 5px;
     cursor: pointer;
     display: flex;
     color: white;
-    background-color:rgb(223, 156, 79) ;
     align-items: center;
     justify-content: center;
     font-size: 10px;
     height: 30px;
 }
-.btn-arrow-left:hover,.btn-arrow-right:hover{
-    background-color: rgb(231, 186, 135);
+.btn-arrow-left{
+    background-color:var(--orange);
+
+}
+.btn-arrow-right{
+    background-color: var(--blur-orange)
 }
 
 .slider-right{
-    padding-left: 50px;
+    width: 590px;
+    margin-left: 50px;
 }
 .slider-right .title{
     font-weight: lighter;
-    color: rgb(223, 156, 79);
+    color: var(--orange);
+    font-weight: lighter;
     margin-bottom: 20px;
+
+    font-size: 24px;
     
 }
 .slider-right p{
-    line-height: 30px;
-    font-size: 13px;
+    line-height: 28px;
+    color: var(--grey);
+    font-size: 14px;
 }
 footer{
     width: 100vw;
+    height: 474px;
     display: flex;
-    justify-content: space-between;
-    padding: 40px 300px 150px 300px;
-    background-color: rgb(243, 128, 128);
+    background-color: var(--red);
+}
+.footer{
+    padding-top: 50px;
+
 }
 .getintouch{
-    color: white;
+    width: 290px;
+    padding-right: 40px;
+    font-size: 12px;
+
+        color: white;
 }
 .getintouch p{
-    margin-bottom: 10px;
+    margin-bottom: 18px;
 }
 .contact{
-    margin-bottom: 30px;
+    margin-bottom: 36px;
+
 }
-
 .address h3{
-    margin-bottom: 10px;
+    margin-bottom: 18px;
 
-    font-size: 15px;
-    
 }
 .address a{
     color: white;
     text-decoration: none;
 }
 .footer-menu{
+    margin-left: 30px;
+
+    width: 590px;
     display: flex;
+    justify-content: space-between  ;
 }
 .footer-menu-item{
     padding: 0 20px;
@@ -205,38 +301,45 @@ footer{
     list-style: none;
 }
 .footer-menu-item h3{
-    font-size: 15px;
-    margin-bottom: 10px;
+    font-family: "Droid Sans",serif;
+    font-size: 12px;
     color: white;
+    margin-bottom: 18px;
 
 
 }
 .footer-menu-item li{
-    margin-bottom: 10px;
+
+    margin-bottom: 18px;
+    font-size: 12px;
 
 }
 .footer-menu-item a{
-    
     color: white;
+    font-family: "Droid Sans",serif;
+
     text-decoration: none;
 }
 
 @media screen and (max-width:1200px) {
     .menu{
-        padding-left: 100px;
+        margin-left: 130px;
+    }
+    .container{
+        padding: 100px;
     }
     .hero{
-        padding: 100px;
+        height: 100vh;
     }
     .hero-text{
         width: 100%;
 
     }
     .hero-text h1{
-        width: 70%;
+        width: 100%;
     }
     .slider{
-        padding: 100px;
+        height: 100%;
         flex-direction: column;
     }
     .slider-left{
@@ -245,6 +348,10 @@ footer{
         margin-bottom: 30px;
         border-bottom: 1px solid #ccc;
     }
+    .slide-btn{
+        justify-content: flex-start;
+        margin-top: 40px;
+    }
     .slider-left{
         display: flex;
         flex-direction: column;
@@ -252,14 +359,17 @@ footer{
     }
     .slider-right{
         width: 100%;
-        padding :0
+        margin-left: 0;
     }
-    footer{
-        padding: 100px;
-        flex-direction: column;
-    }
+    
     .getintouch{
         margin-bottom: 50px;
+    }
+    .footer{
+        height: 100%;
+    }
+    .footer-menu{
+        margin: 0;
     }
     .footer-menu{
         display: flex;
@@ -313,14 +423,13 @@ footer{
         color: white;
         display: block;
     }
-    f
+    
      .arrow{
         display: inline-block;
     }
-    .logo{
-        position: absolute;
+    .logo-area{
        top: 0;
-       left: 20px;
+       left: 0px;
     }
     .header .menu{
         width: 100vw;
@@ -337,6 +446,9 @@ footer{
     .header.is-open .menu{
         transform: translateY(0%);
     }
+    .menu{
+        justify-content: initial;
+    }
     .menu a{
         width: 100%;
         text-transform: uppercase;
@@ -350,7 +462,7 @@ footer{
     }
     
     
-  .menu li{
+    .menu li{
         display: flex;
         align-items: center;
         justify-content: center;
@@ -377,26 +489,25 @@ footer{
     .submenu li:hover .submenu-2{
         max-height: initial;
     }
+    footer{
+        flex-direction: column;
+    }
     .footer-menu-item{
         margin-bottom: 20px;
     }
     .footer-menu{
       display: grid;
+      width: 100%;
       grid-template-columns: repeat(2,1fr);
     }
+    
     
 }
 
 @media  screen and (max-width : 480px) {
-        .hero{
-            padding: 0 20px;
-        }
-        .slider{
-            padding: 50px 20px;
-        }
-        footer{
-            padding: 50px 20px;
-        }
+       .container{
+           padding: 50px;
+       }
     }
     
     
